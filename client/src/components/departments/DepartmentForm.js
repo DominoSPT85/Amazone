@@ -7,7 +7,7 @@ class DepartmentForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addDepartment(this.state.title);
-  this.setState({ title: "", });
+    this.setState({ title: "", });
   }
 
   handleChange = (e) => {
