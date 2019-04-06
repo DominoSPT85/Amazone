@@ -8,7 +8,7 @@ import { Container } from 'semantic-ui-react';
 import {BrowserRouter, Switch, Route, } from 'react-router-dom';
 import NoMatch from './components/NoMatch';
 import Navbar from './components/shared/Navbar';
-import Login from './components/shared/Navbar';
+import Login from './components/shared/Login';
 import Register from './components/shared/Register';
 
 const App = () => (
