@@ -15,9 +15,11 @@ export default class Form extends React.Component {
     } 
   }
 
+
+
   change = e => {
     // const { name, description, price, stock } = e.target
-    this.props.onChange({ [e.target.name]: e.target.value });
+    this.props.change({ [e.target.name]: e.target.value });
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -31,7 +33,7 @@ export default class Form extends React.Component {
       price: "",
       inStock: "",
     });
-    this.props.onChange({
+    this.props.addProduct({
       name: "",
       description: "",
       price: "",
@@ -46,7 +48,7 @@ export default class Form extends React.Component {
           name="name"
           placeholder="Name of product"
           value={this.state.name}
-          onChange={e => this.change(e)}
+          change={e => this.change(e)}
         />
         <br />
         <input
