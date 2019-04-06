@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import DepartmentList from './departments/DepartmentList';
 import DepartmentForm from './departments/DepartmentForm';
-// import Department from './departments/Derpartment'
 import axios from 'axios';
 import { Container } from 'semantic-ui-react';
+import { Link, } from 'react-router-dom';
 
 
 class Home extends Component {
@@ -19,17 +19,6 @@ class Home extends Component {
       })
   }
 
-  addDepartment = (department) => {
-    axios.post('/api/departments', { department })
-    .then( res => {
-      const { departments } = this.state;
-      this.setState({ departments: [...departments, res.data] });
-    })
-    .catch( err => {
-      console.log(err);
-    })
-  }
-
   updateDepartment = (id) => {
     axios.put(`/api/departments/${id}`)
     .then( res => {
@@ -39,8 +28,7 @@ class Home extends Component {
       return d;
     });
     this.setState({ departments, });
-  })
-
+    })
   }
 
   deleteDepartment = (id) => {
@@ -54,11 +42,12 @@ class Home extends Component {
     })
   }
 
-
   render() {
     return (
       <Container style={{ padding: "30px 0" }}>
-        <DepartmentForm addDepartment={this.addDepartment} />
+
+        <Link to="/new-department">Add new department</Link>
+        {/* <DepartmentForm addDepartment={this.addDepartment} /> */}
         <br />
         <br />
         <DepartmentList

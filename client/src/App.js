@@ -10,17 +10,21 @@ import NoMatch from './components/NoMatch';
 import Navbar from './components/shared/Navbar';
 import Login from './components/shared/Login';
 import Register from './components/shared/Register';
+import ProtectedRoute from './components/shared/ProtectedRoute';
+import DepartmentForm from './components/departments/DepartmentForm';
+import FetchUser from './components/shared/FetchUser';
 import ProductForm from './components/products/ProductForm';
 
 const App = () => (
   <>
     <Navbar />
-      <Container>
+     <FetchUser> 
+       <Container>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/departments" component={DepartmentList} />
+          <ProtectedRoute exact path="/new-department" component={DepartmentForm} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/departments/:id" component={Department} />
           <Route exact path="/department/:id/products" component={ProductList} />
@@ -29,6 +33,7 @@ const App = () => (
           <Route component={NoMatch} />
         </Switch>
       </Container>
+      </FetchUser> 
   </>
 );
 
