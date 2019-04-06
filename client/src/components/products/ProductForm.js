@@ -1,35 +1,73 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class ProductForm extends Component {
-  state = { name: " ", description: " ", price: " ", stock: " ", }
+export default class Form extends React.Component {
+  state = {
+    name: "",
+    description: "",
+    price: "",
+    stock: "",
+  };
 
+  change = e => {
+    // const { name, description, price, stock } = e.target
+    this.props.onChange({ [e.target.name]: e.target.value });
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
 
-  handleSubmit = (e) => {
+  onSubmit = e => {
     e.preventDefault();
-    this.props.addItem(this.state.name);
-    this.setState({ name: '' })
-  }
-
-  handleChange = (e) => {
-    this.setState({ name: e.target.value })
-  }
-
- 
+    // this.props.onSubmit(this.state);
+    this.setState({
+      name: "",
+      description: "",
+      price: "",
+      stock: "",
+    });
+    this.props.onChange({
+      name: "",
+      description: "",
+      price: "",
+      stock: "",
+    });
+  };
 
   render() {
-    const { name } = this.state
+    return (
+      <form>
+        <input
+          name="name"
+          placeholder="Name of product"
+          value={this.state.name}
+          onChange={e => this.change(e)}
+        />
+        <br />
+        <input
+          name="description"
+          placeholder="Description"
+          value={this.state.description}
+          onChange={e => this.change(e)}
+        />
+        <br />
+        <input
+          name="price"
+          placeholder="Price"
+          value={this.state.price}
+          onChange={e => this.change(e)}
+        />
+        <br />
+        <input
+          name="stock"
+          placeholder="In stock"
+          value={this.state.stock}
+          onChange={e => this.change(e)}
+        />
+        <br />
 
-    return(
-      <form onSubmit={this.handleSubmit}>
-        <input 
-          value={name} 
-          item="name" 
-          onChange={this.handleChange} 
-          required placeholder="List item" />
+        <button onClick={e => this.onSubmit(e)}>Submit</button>
       </form>
-    )
+    );
   }
 }
 
-
-export default ProductForm;
