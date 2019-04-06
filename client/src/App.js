@@ -10,6 +10,7 @@ import NoMatch from './components/NoMatch';
 import Navbar from './components/shared/Navbar';
 import Login from './components/shared/Login';
 import Register from './components/shared/Register';
+import ProductForm from './components/products/ProductForm';
 
 const App = () => (
   <>
@@ -24,6 +25,7 @@ const App = () => (
           <Route exact path="/departments/:id" component={Department} />
           <Route exact path="/department/:id/products" component={ProductList} />
           {/* <React exact path="/department/:id/products/:id" component={ViewProduct} /> */}
+          <Route exact path="/product/addProduct" component={ProductForm} />
           <Route component={NoMatch} />
         </Switch>
       </Container>
