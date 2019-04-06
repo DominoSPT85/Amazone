@@ -11,8 +11,8 @@ const App = () => (
     <Route exact path="/login" component={Login} />
     <Route exact path="/register" component={Register} />
     <Route exact path="/departments/:id" component={Department} />
-    <Route exact path="/department/:department_id/products" component={ProductList} />
-    <React exact path="/department/:department_id/products/:id" component={Product} />
+    <Route exact path="/department/:id/products" component={ProductList} />
+    <React exact path="/department/:id/products/:id" component={ViewProduct} />
 
     <Route component={NoMatch} />
   </>
