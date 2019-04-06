@@ -13,7 +13,7 @@ import Register from './components/shared/Register';
 import ProtectedRoute from './components/shared/ProtectedRoute';
 import DepartmentForm from './components/departments/DepartmentForm';
 import FetchUser from './components/shared/FetchUser';
-
+import ProductForm from './components/products/ProductForm';
 
 const App = () => (
   <>
@@ -29,6 +29,7 @@ const App = () => (
           <Route exact path="/departments/:id" component={Department} />
           <Route exact path="/department/:id/products" component={ProductList} />
           {/* <React exact path="/department/:id/products/:id" component={ViewProduct} /> */}
+          <Route exact path="/product/addProduct" component={ProductForm} />
           <Route component={NoMatch} />
         </Switch>
       </Container>

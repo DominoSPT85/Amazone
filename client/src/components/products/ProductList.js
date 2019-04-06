@@ -2,6 +2,7 @@ import React from 'react';
 import { Table } from 'semantic-ui-react';
 import Product from './Product';
 
+
 const ProductList = ({ productList }) => (
   <Table celled>
     <Table.Header>
