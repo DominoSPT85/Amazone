@@ -1,12 +1,21 @@
 import React from "react";
 import { Form, } from "semantic-ui-react";
+import axios from 'axios';
+
 
 class DepartmentForm extends React.Component {
   state = { title: "", };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addDepartment(this.state.title);
+    const { title}  = this.state
+    axios.post('/api/departments', {title })
+    .then( res => {
+      this.props.history.push("/home")
+    })
+    .catch( err => {
+      console.log(err);
+    })
     this.setState({ title: "", });
   }
 

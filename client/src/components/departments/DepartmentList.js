@@ -1,6 +1,5 @@
 import React from 'react';
 import Department from './Department';
-import axios from 'axios';
 
 const DepartmentList = ({ departments, updateDepartment, deleteDepartment }) => (
   <ul>
