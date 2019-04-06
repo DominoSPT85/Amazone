@@ -5,8 +5,15 @@ export default class Form extends React.Component {
     name: "",
     description: "",
     price: "",
-    stock: "",
+    inStock: "",
   };
+
+  componentDidMount() {
+    if (this.props.id) {
+      const { name, description, price, inStock } = this.props
+      this.setState({ name, description, price, inStock })
+    } 
+  }
 
   change = e => {
     // const { name, description, price, stock } = e.target
@@ -18,18 +25,17 @@ export default class Form extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    // this.props.onSubmit(this.state);
     this.setState({
       name: "",
       description: "",
       price: "",
-      stock: "",
+      inStock: "",
     });
     this.props.onChange({
       name: "",
       description: "",
       price: "",
-      stock: "",
+      inStock: "",
     });
   };
 
@@ -58,9 +64,9 @@ export default class Form extends React.Component {
         />
         <br />
         <input
-          name="stock"
+          name="inStock"
           placeholder="In stock"
-          value={this.state.stock}
+          value={this.state.inStock}
           onChange={e => this.change(e)}
         />
         <br />

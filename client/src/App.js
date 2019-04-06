@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
-import './App.css';
-import ProductForm from './components/products/ProductForm';
-import { Button, } from 'semantic-ui-react';
+import React from 'react';
+import { Route, } from 'react-router-dom';
+import DepartmentList from './components/departments/DepartmentList';
+import Department from './components/departments/Derpartment';
+import ProductList from './components/products/ProductList';
+import Product from './components/products/Product';
+import Login from './components/shared/Login';
+import Register from './components/shared/Register';
+import ViewProduct from './components/products/ViewProduct';
+import NoMatch from './components/NoMatch';
 
-class App extends Component {
 
+const App = () => (
+  <>
+    <Route exact path="/" component={DepartmentList} />
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/register" component={Register} />
+    <Route exact path="/departments/:id" component={Department} />
+    <Route exact path="/department/:id/products" component={ProductList} />
+    <React exact path="/department/:id/products/:id" component={ViewProduct} />
 
-  onChange = change => {
-    this.setState({
-    });
-  };
+    <Route component={NoMatch} />
+  </>
+);
 
-  render() {
-    return (
-     <div>
-      <ProductForm onChange={change => this.onChange(change)} />
-
-     </div>
-      
-    )
-  }
-}
 
 export default App;
